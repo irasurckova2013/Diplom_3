@@ -1,9 +1,22 @@
 import PageObjects.LoginPage;
 import PageObjects.MainPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ConstructorTabsTests extends BrowserSelector{
+public class ConstructorTabsTests {
+    private WebDriver driver;
+
+    @Before
+    public void prepare(){
+        WebDriverManager.chromiumdriver().setup();
+        //WebDriverManager.firefoxdriver().setup();
+        driver = new ChromeDriver();
+        //driver = new FirefoxDriver();
+    }
 
     @Test
     public void constructorTabsTest() {

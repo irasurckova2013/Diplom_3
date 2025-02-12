@@ -7,12 +7,14 @@ public class DeleteUserSteps {
 
     @Step("Логин")
     public Response loginUser () {
+
         return stellarBurgersApi.doPostLogin("{\"email\":\"" + TestCredentials.EMAIL + "\",\"password\":\"" + TestCredentials.PASSWORD + "\"}");
     }
 
     @Step("Удаление клиента")
     public Response deleteUser () {
         Response postLogin = loginUser ();
+
         if (postLogin.getStatusCode() == 200) {
             String token = postLogin.jsonPath().getString("accessToken");
             return stellarBurgersApi.doDeleteUser (token); // Возвращаем результат удаления

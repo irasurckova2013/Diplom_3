@@ -2,11 +2,21 @@ import PageObjects.LoginPage;
 import PageObjects.MainPage;
 import PageObjects.RegistrationPage;
 import PageObjects.ForgotPasswordPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
+public class LoginTests  {
+    private WebDriver driver;
 
-public class LoginTests extends BrowserSelector {
+    @Before
+    public void prepare(){
+        WebDriverManager.chromiumdriver().setup();
+        driver = new ChromeDriver();
+    }
 
     @Test
     public void loginMainPage() {

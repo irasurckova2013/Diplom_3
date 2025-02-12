@@ -1,9 +1,20 @@
 import PageObjects.RegistrationPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;;
 
-public class RegistrationTests  extends BrowserSelector{
+public class RegistrationTests {
+    private WebDriver driver;
     private DeleteUserSteps deleteUserSteps = new DeleteUserSteps();
+
+    @Before
+    public void prepare(){
+        WebDriverManager.chromiumdriver().setup();
+        driver = new ChromeDriver();
+    }
 
     @Test
     public void successfulRegistrationTest() {
