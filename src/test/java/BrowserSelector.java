@@ -8,7 +8,7 @@ public class BrowserSelector {
 
     public BrowserSelector() {
 
-        File driverFile = new File(getClass().getClassLoader().getResource("chromedriver.exe").getFile());
+        File driverFile = new File(getClass().getClassLoader().getResource("yandexdriver.exe").getFile());
         System.setProperty("webdriver.chrome.driver", driverFile.getAbsolutePath());
         driver = new ChromeDriver();
     }
